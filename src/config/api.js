@@ -1,5 +1,8 @@
 export const API = () => {
-  const baseUrl = "http://localhost:5000/api/v1";
+  const baseUrl =
+  process.env.REACT_APP_SERVER_URL ||
+  'https://b32-backend-yandi.herokuapp.com/api/v1' ||
+  'https://localhost:5000/api/v1';
 
   const executeAPI = async (endpoint, config) => {
     const response = await fetch(baseUrl + endpoint, config);
